@@ -2,7 +2,10 @@
     "name": "erinad/wordpress-composer",
     "type": "project",
     "require": {
-        "johnpbloch/wordpress": "^5.9"
+        "johnpbloch/wordpress": "^5.9",
+        "wpackagist-plugin/akismet":"dev-trunk",
+        "wpackagist-plugin/wordpress-seo":">=7.0.2",
+        "wpackagist-theme/hueman":"*"
     },
     "autoload": {
         "psr-4": {
@@ -18,6 +21,29 @@
     "config": {
         "allow-plugins": {
             "johnpbloch/wordpress-core-installer": true
+        }
+    },
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "extra": {
+        "installer-paths": {
+            "wordpress/wp-content/mu-plugins/{$name}/": [
+                "wpackagist-plugin/akismet"
+            ],
+            "wordpress/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wordpress/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
         }
     }
 }
