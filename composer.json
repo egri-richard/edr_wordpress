@@ -1,0 +1,23 @@
+{
+    "name": "erinad/wordpress-composer",
+    "type": "project",
+    "require": {
+        "johnpbloch/wordpress": "^5.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Erinad\\WordpressComposer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "egri-richard",
+            "email": "egri.dani.r@gmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true
+        }
+    }
+}
